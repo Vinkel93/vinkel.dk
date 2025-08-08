@@ -1,53 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nicolaj Vinkel</title>
-    <meta name="description" content="Personal site of Nicolaj Vinkel – links, projects, and contact." />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nicolaj Vinkel — Personal Site</title>
+  <meta name="description" content="Personal website of Nicolaj Vinkel: About, CV, social links, and contact." />
+  <meta property="og:title" content="Nicolaj Vinkel — Personal Site" />
+  <meta property="og:description" content="About me, my CV, and how to get in touch." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vinkel.dk/" />
+  <style>
+    :root {
+      --bg: #f0f7ff;        /* light blue background */
+      --panel: #ffffff;     /* white panels */
+      --text: #1e293b;      /* slate-800 */
+      --muted: #64748b;     /* slate-500 */
+      --accent: #3b82f6;    /* bright modern blue */
+      --line: #e2e8f0;      /* light border */
+    }
+    * { box-sizing: border-box }
+    body {
+      margin: 0; 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text); 
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    header { max-width: 980px; margin: 0 auto; padding: 56px 20px 20px }
+    .card {
+      max-width: 980px; margin: 16px auto; padding: 28px 22px; background: var(--panel);
+      border: 1px solid var(--line); border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    }
+    h1 { font-size: clamp(28px, 4.5vw, 42px); margin: 0 0 6px }
+    .subtitle { color: var(--muted); margin: 0 0 18px }
+    .row { display: grid; gap: 18px; grid-template-columns: 1fr }
+    @media (min-width: 820px) { .row { grid-template-columns: 1.1fr 1fr } }
+    h2 { margin: 0 0 12px; font-size: 22px }
+    p { margin: 0 0 12px }
+    a { color: var(--accent); text-decoration: none }
+    a:hover { text-decoration: underline }
+    ul { padding-left: 18px; margin: 8px 0 0 }
+    .chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px }
+    .chip { background:#e0f2fe; border:1px solid var(--line); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:14px }
+    .social { display:flex; gap:14px; flex-wrap:wrap }
+    .social a { background:#e0f2fe; border:1px solid var(--line); padding:10px 14px; border-radius:10px }
+    .cv-list li { margin-bottom: 10px }
+    form { display:grid; gap:12px }
+    input, textarea, button {
+      width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line);
+      background:#f8fafc; color: var(--text); font: inherit;
+    }
+    textarea { min-height: 140px; resize: vertical }
+    button { background: var(--accent); color: white; cursor: pointer; border: none; font-weight: 600 }
+    button:hover { background: #2563eb; }
+    .note { color: var(--muted); font-size: 14px }
+    footer { max-width:980px; margin: 24px auto 40px; padding: 0 20px; color: var(--muted); text-align:center }
+    .success, .error { padding:10px 12px; border-radius:10px; border:1px solid var(--line); display:none }
+    .success { background:#ecfdf5; }
+    .error { background:#fef2f2; }
+  </style>
 </head>
 <body>
+  <header>
     <h1>Nicolaj Vinkel</h1>
-    <p>Welcome to my personal site.</p>
-    <div class="links">
-        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
-        <a href="mailto:your@email.com">Email</a>
+    <p class="subtitle">Business Analyst & Technical Specialist — bridging business and IT, delivering results with structure and insight.</p>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/nvinkel/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:nvinkelc@gmail.com">Email</a>
     </div>
+    <div class="chips">
+      <span class="chip">Business Analysis</span>
+      <span class="chip">Data Migration</span>
+      <span class="chip">Cutover Management</span>
+      <span class="chip">Project Planning</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="row">
+      <div>
+        <h2>Who am I</h2>
+        <p>
+          I am a business analyst and technical specialist with experience in analyzing complex business processes, data flows, and technical setups.
+          My work bridges the gap between business and IT — ensuring that stakeholders understand the technical implications, and that solutions are delivered efficiently.
+        </p>
+        <p>
+          I thrive in roles where I can support Product Owners and Project Managers, bring structure to projects, and translate between technical and business perspectives.
+        </p>
+      </div>
+      <div>
+        <h2>This is my CV</h2>
+        <ul class="cv-list">
+          <li><strong>Business Analyst & Technical Specialist</strong> — Analyzed processes, led data migrations, managed cutovers, and ensured technical clarity in projects.</li>
+          <li><strong>Project Planning & Support</strong> — Structured project plans, coordinated with multiple teams, and supported POs and PMs in delivery.</li>
+          <li><strong>Technical Communication</strong> — Bridged the gap between business needs and IT capabilities, producing clear documentation and actionable plans.</li>
+        </ul>
+        <p class="note">Prefer a document? <a href="./Nicolaj_Vinkel_CV.pdf" download>Download my CV (PDF)</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>Contact</h2>
+    <p>Want to work together or just say hi? Send me a message.</p>
+
+    <form id="contactForm" action="https://formspree.io/f/REPLACE_WITH_YOURS" method="POST">
+      <input type="hidden" name="_subject" value="New message from vinkel.dk" />
+      <label>
+        Name
+        <input type="text" name="name" placeholder="Your name" required />
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" placeholder="you@example.com" required />
+      </label>
+      <label>
+        Message
+        <textarea name="message" placeholder="How can I help?" required></textarea>
+      </label>
+      <button type="submit">Send message</button>
+      <p class="note">By sending, you agree I can contact you back about your inquiry.</p>
+
+      <div class="success" id="okMsg">Thank you — I’ll get back to you soon.</div>
+      <div class="error" id="errMsg">Oops, something went wrong. Email me directly instead.</div>
+    </form>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Nicolaj Vinkel · <a href="mailto:nvinkelc@gmail.com">nvinkelc@gmail.com</a>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contactForm');
+    const ok = document.getElementById('okMsg');
+    const err = document.getElementById('errMsg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      ok.style.display = 'none';
+      err.style.display = 'none';
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        });
+        if (res.ok) {
+          form.reset();
+          ok.style.display = 'block';
+        } else {
+          err.style.display = 'block';
+        }
+      } catch {
+        err.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
