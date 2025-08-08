@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio of Nicolaj Vinkel Christensen — Senior Advisor in financial services modernization." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
+    body{
       scroll-behavior: smooth;
       background:
         radial-gradient(80rem 40rem at -10% -20%, #12202a 0%, transparent 55%),
@@ -15,31 +15,18 @@
         #0b0f14;
     }
     nav a.active { color: #fbbf24; font-weight: bold; }
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(17, 24, 39, 0.95);
-      color: white;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #374151;
-      max-width: 280px;
-      font-size: 14px;
-      z-index: 100;
+
+    /* SAFE fade-in: show by default; animate only if JS adds .animate */
+    .fade-in{opacity:1; transform:none}
+    .animate{animation: rise 600ms ease both}
+    @keyframes rise{
+      from{opacity:0; transform: translateY(20px)}
+      to{opacity:1; transform: translateY(0)}
     }
-    .popup button.close {
-      position: absolute;
-      top: 6px;
-      right: 8px;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+
+    /* popup */
+    .popup{position:fixed;bottom:20px;right:20px;background:rgba(17,24,39,.95);color:#fff;padding:16px;border-radius:12px;border:1px solid #374151;max-width:280px;font-size:14px;z-index:100}
+    .popup button.close{position:absolute;top:6px;right:8px;background:none;border:none;color:#fff;font-size:16px;cursor:pointer}
   </style>
 </head>
 <body class="text-slate-100">
@@ -101,6 +88,7 @@
           Privately, Nicolaj lives outside Copenhagen with his girlfriend. When time allows, he enjoys reading,
           staying active, and diving into space technology.
         </p>
+
         <div class="mt-6">
           <h3 class="text-lg font-semibold text-emerald-400">Selected Achievements</h3>
           <ul class="list-disc list-inside mt-2 space-y-1 text-slate-300">
@@ -108,6 +96,7 @@
             <li>Cutover plan reduced system outage risk from 18 hours to &lt; 2 hours</li>
           </ul>
         </div>
+
         <div class="mt-6">
           <h3 class="text-lg font-semibold text-emerald-400">Credentials & Recognition</h3>
           <ul class="list-disc list-inside mt-2 space-y-1 text-slate-300">
@@ -134,6 +123,7 @@
           Privat bor Nicolaj uden for København med sin kæreste. Når tiden tillader det, læser han,
           holder sig aktiv og dykker ned i rumteknologi.
         </p>
+
         <div class="mt-6">
           <h3 class="text-lg font-semibold text-emerald-400">Udvalgte resultater</h3>
           <ul class="list-disc list-inside mt-2 space-y-1 text-slate-300">
@@ -141,6 +131,7 @@
             <li>Cutover-plan reducerede risiko for systemnedetid fra 18 timer til &lt; 2 timer</li>
           </ul>
         </div>
+
         <div class="mt-6">
           <h3 class="text-lg font-semibold text-emerald-400">Anerkendelser & Certifikater</h3>
           <ul class="list-disc list-inside mt-2 space-y-1 text-slate-300">
@@ -181,6 +172,8 @@
     <section id="contact" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 fade-in">
       <h2 class="text-xl font-semibold text-amber-400 lang-en">Contact</h2>
       <h2 class="text-xl font-semibold text-amber-400 lang-da hidden">Kontakt</h2>
+      <p class="text-slate-400 mt-1 lang-en">Send a message below — I’ll reply soon.</p>
+      <p class="text-slate-400 mt-1 lang-da hidden">Send en besked nedenfor — jeg svarer hurtigst muligt.</p>
       <form class="grid gap-3 mt-3" action="https://formspree.io/f/mrblojzr" method="POST">
         <label class="grid gap-1">
           <span class="text-sm text-slate-300 lang-en">Name</span><span class="text-sm text-slate-300 lang-da hidden">Navn</span>
@@ -203,31 +196,35 @@
 
   <!-- Footer -->
   <footer class="max-w-3xl mx-auto px-4 my-10 text-center text-slate-400">
-    © <span id="year"></span> Nicolaj Vinkel Christensen · <span class="lang-en">I work with organizations committed to doing things right, not cutting corners.</span><span class="lang-da hidden">Jeg arbejder med organisationer, der er dedikeret til at gøre tingene ordentligt — ikke springe over, hvor gærdet er lavest.</span>
+    © <span id="year"></span> Nicolaj Vinkel Christensen ·
+    <span class="lang-en">I work with organizations committed to doing things right, not cutting corners.</span>
+    <span class="lang-da hidden">Jeg arbejder med organisationer, der er dedikeret til at gøre tingene ordentligt — ikke springe over, hvor gærdet er lavest.</span>
   </footer>
 
-  <!-- Popup -->
+  <!-- Bottom-right popup -->
   <div id="popup" class="popup">
-    <button class="close" onclick="document.getElementById('popup').style.display='none'">&times;</button>
-    <span class="lang-en">For project inquiries, please use the contact form below.</span>
-    <span class="lang-da hidden">For projektforespørgsler, brug venligst kontaktformularen nedenfor.</span>
+    <button class="close" aria-label="Close">&times;</button>
+    <p>
+      <span class="lang-en">For project inquiries, please use the</span>
+      <span class="lang-da hidden">For projektforespørgsler, brug venligst</span>
+      <a href="#contact" class="text-emerald-400 underline">
+        <span class="lang-en">contact form below</span>
+        <span class="lang-da hidden">kontaktformularen nedenfor</span>
+      </a>.
+    </p>
     <div class="mt-2">
-      <a href="#contact" class="text-emerald-400 underline lang-en">Go to Contact Form</a>
-      <a href="#contact" class="text-emerald-400 underline lang-da hidden">Gå til kontaktformular</a>
+      <a href="#contact" class="inline-flex items-center justify-center rounded-lg bg-emerald-400 text-slate-900 font-bold px-3 py-1.5 hover:brightness-95">
+        <span class="lang-en">Open form</span><span class="lang-da hidden">Åbn formular</span>
+      </a>
     </div>
   </div>
 
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fade in
-    const faders = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-    faders.forEach(f => observer.observe(f));
+    // Gentle animation attach (no risk of hiding content)
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('animate'));
 
     // Language toggle
     const toggleBtn = document.getElementById('langToggle');
@@ -236,6 +233,15 @@
       document.documentElement.dataset.lang = isEN ? 'da' : 'en';
       document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', !isEN));
       document.querySelectorAll('.lang-da').forEach(el => el.classList.toggle('hidden', isEN));
+    });
+
+    // Popup close (persist for session)
+    const popup = document.getElementById('popup');
+    const closeBtn = popup.querySelector('.close');
+    if (sessionStorage.getItem('popupClosed') === '1') popup.style.display = 'none';
+    closeBtn.addEventListener('click', () => {
+      popup.style.display = 'none';
+      sessionStorage.setItem('popupClosed', '1');
     });
   </script>
 
