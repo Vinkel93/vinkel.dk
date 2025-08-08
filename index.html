@@ -1,268 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nicolaj Vinkel — Portfolio</title>
-<meta name="description" content="Portfolio of Nicolaj Vinkel — Senior Advisor focused on bridging business and technology." />
-<style>
-  :root{
-    --bg:#0b0f14;
-    --panel:#10161d;
-    --muted:#9aa7b2;
-    --text:#e6edf3;
-    --accent:#28d7a2;   /* teal accent */
-    --line:#1c2630;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:var(--text);
-    background:
-      radial-gradient(80rem 40rem at -10% -20%, #12202a 0%, transparent 55%),
-      radial-gradient(60rem 35rem at 110% 10%, #15222c 0%, transparent 60%),
-      var(--bg);
-  }
-
-  /* Top nav */
-  .nav{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter: blur(6px);
-    background:rgba(11,15,20,.65); border-bottom:1px solid var(--line);
-  }
-  .nav-inner{max-width:1150px; margin:0 auto; padding:12px 18px; display:flex; align-items:center; gap:18px}
-  .brand{font-weight:700; letter-spacing:.4px}
-  .spacer{flex:1}
-  .nav a{
-    color:var(--text); text-decoration:none; padding:8px 10px; border-radius:8px; opacity:.9
-  }
-  .nav a:hover{background:#0f171f}
-  .nav a.btn{background:var(--accent); color:#0d1319; font-weight:700; opacity:1}
-
-  /* Layout */
-  .wrap{max-width:1150px; margin:26px auto; padding:0 18px; display:grid; gap:22px}
-  @media (min-width: 980px){
-    .wrap{grid-template-columns: 340px 1fr}
-  }
-
-  /* Left hero */
-  .hero{
-    background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:22px;
-    position:sticky; top:68px; height:fit-content
-  }
-  .portrait-wrap{
-    position:relative; border-radius:16px; overflow:hidden; isolation:isolate;
-  }
-  .portrait-wrap::before{
-    content:""; position:absolute; inset:-20%; background:radial-gradient(60% 60% at 50% 40%, rgba(40,215,162,.25), transparent 70%);
-    filter:blur(18px); z-index:0;
-  }
-  .portrait{
-    position:relative; z-index:1; width:100%; aspect-ratio:1/1; object-fit:cover;
-    border-radius:14px; border:1px solid var(--line);
-    box-shadow: 0 18px 50px rgba(0,0,0,.45)
-  }
-  h1{font-size:clamp(26px,4.2vw,38px); margin:14px 0 6px}
-  .title{color:var(--muted); margin:0 0 14px}
-  .tags{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 6px}
-  .tag{font-size:13px; color:#0e151b; background:var(--accent); padding:6px 10px; border-radius:999px; font-weight:600}
-  .socials{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap}
-  .socials a{
-    text-decoration:none; color:var(--text); border:1px solid var(--line); background:#0f171f;
-    padding:10px 12px; border-radius:10px
-  }
-  .socials a:hover{border-color:#24424e}
-
-  /* Right content */
-  .card{
-    background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:24px
-  }
-  h2{margin:0 0 14px; font-size:22px}
-  p{margin:0 0 12px; color:var(--text)}
-  .muted{color:var(--muted)}
-  .grid{display:grid; gap:14px}
-  @media (min-width: 780px){ .grid{grid-template-columns:1fr 1fr} }
-
-  /* Timeline */
-  .timeline{display:grid; gap:18px; margin-top:6px}
-  .item{display:grid; gap:6px; padding:14px; border:1px solid var(--line); border-radius:12px; background:#0f171f}
-  .when{color:var(--muted); font-size:14px}
-  .role{font-weight:700}
-  ul{margin:6px 0 0 18px}
-  li{margin:6px 0}
-
-  /* Form */
-  form{display:grid; gap:12px; margin-top:6px}
-  input, textarea, button{
-    width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--line);
-    background:#0f171f; color:var(--text); font:inherit
-  }
-  textarea{min-height:140px; resize:vertical}
-  button{background:var(--accent); color:#0d1319; font-weight:700; cursor:pointer; border:none}
-  .note{color:var(--muted); font-size:13px}
-
-  footer{max-width:1150px; margin:28px auto 44px; padding:0 18px; color:var(--muted); text-align:center}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nicolaj Vinkel — Portfolio</title>
+  <meta name="description" content="Portfolio of Nicolaj Vinkel — Senior Advisor focused on bridging business and technology." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* subtle background gradients */
+    body{
+      background:
+        radial-gradient(80rem 40rem at -10% -20%, #12202a 0%, transparent 55%),
+        radial-gradient(60rem 35rem at 110% 10%, #15222c 0%, transparent 60%),
+        #0b0f14;
+    }
+  </style>
 </head>
-<body>
+<body class="text-slate-100">
+  <!-- Top nav -->
+  <nav class="sticky top-0 z-50 bg-black/40 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
+      <div class="font-semibold tracking-wide">Nicolaj Vinkel</div>
+      <div class="flex-1"></div>
+      <a href="#cv" class="px-3 py-2 rounded hover:bg-slate-800/60">CV</a>
+      <a href="#contact" class="px-3 py-2 rounded hover:bg-slate-800/60">Contact</a>
+      <a href="#socials" class="px-3 py-2 rounded hover:bg-slate-800/60">Socials</a>
+      <!-- <a href="./Nicolaj_Vinkel_CV.pdf" class="ml-2 px-3 py-2 rounded bg-emerald-400 text-slate-900 font-bold">Download CV</a> -->
+    </div>
+  </nav>
 
-<!-- Top navigation -->
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="brand">Nicolaj Vinkel</div>
-    <div class="spacer"></div>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-    <a href="#socials">Socials</a>
-    <!-- <a class="btn" href="./Nicolaj_Vinkel_CV.pdf">Download CV</a> -->
+  <!-- Main wrap -->
+  <div class="max-w-6xl mx-auto px-4 mt-6 grid gap-6 lg:grid-cols-[340px,1fr]">
+    <!-- Left hero -->
+    <aside class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 h-fit sticky top-20">
+      <div class="relative rounded-xl overflow-hidden isolate">
+        <div class="absolute -inset-10 bg-[radial-gradient(60%_60%_at_50%_40%,rgba(16,185,129,.25),transparent_70%)] blur-xl"></div>
+        <img src="./picture3.jpg" alt="Portrait of Nicolaj Vinkel" class="relative z-10 w-full aspect-square object-cover rounded-xl border border-slate-800 shadow-2xl" />
+      </div>
+      <h1 class="text-3xl md:text-4xl font-semibold mt-4">Nicolaj Vinkel</h1>
+      <p class="text-slate-400 mt-1">Senior Advisor — bridging business & technology</p>
+
+      <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-sm font-semibold text-slate-900 bg-emerald-400 px-3 py-1 rounded-full">Business Analysis</span>
+        <span class="text-sm font-semibold text-slate-900 bg-emerald-400 px-3 py-1 rounded-full">Data Migration</span>
+        <span class="text-sm font-semibold text-slate-900 bg-emerald-400 px-3 py-1 rounded-full">Cutover Management</span>
+        <span class="text-sm font-semibold text-slate-900 bg-emerald-400 px-3 py-1 rounded-full">Project Planning</span>
+      </div>
+
+      <div id="socials" class="flex flex-wrap gap-3 mt-4">
+        <a class="px-4 py-2 rounded-lg border border-slate-800 bg-slate-800/60 hover:border-emerald-600" target="_blank" rel="noopener" href="https://www.linkedin.com/in/nvinkel/">LinkedIn</a>
+        <a class="px-4 py-2 rounded-lg border border-slate-800 bg-slate-800/60 hover:border-emerald-600" target="_blank" rel="noopener" href="https://github.com/Vinkel93">GitHub</a>
+      </div>
+    </aside>
+
+    <!-- Right content -->
+    <main class="grid gap-6">
+      <!-- About + CV -->
+      <section id="cv" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+        <h2 class="text-xl font-semibold">About</h2>
+        <p class="mt-2">
+          I’m an outgoing and proactive engineer with a futuristic and analytical mindset. I love merging business and technology and
+          translating between stakeholders so projects move faster with fewer surprises. I’ve worked across roles ranging from
+          developer and analyst to solution architect and project lead.
+        </p>
+        <p class="text-slate-400">Based in Copenhagen · Open to interesting projects in analytics, integrations, and modernization.</p>
+
+        <h3 class="text-xl font-semibold mt-6">Experience (highlights)</h3>
+        <div class="grid gap-4 mt-2">
+          <!-- 44East -->
+          <div class="rounded-xl border border-slate-800 bg-slate-800/50 p-4">
+            <div class="text-sm text-slate-400">2024 → Present</div>
+            <div class="font-semibold">Senior Advisor — 44East</div>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Technical project leadership for a banking IT provider; replacing legacy core to enable modern capabilities.</li>
+              <li>Bridge business and engineering; drive structure, risk mitigation, and clear decision-making.</li>
+            </ul>
+          </div>
+          <!-- Accenture -->
+          <div class="rounded-xl border border-slate-800 bg-slate-800/50 p-4">
+            <div class="text-sm text-slate-400">2019 → 2023</div>
+            <div class="font-semibold">Technical Consultant — Accenture (Software Engineering)</div>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Insurance industry projects across roles: Developer, Business/Technical Analyst, Scrum Master, Solution Architect.</li>
+              <li>Requirements, integrations (APIs, mainframe &amp; Siebel), data migration support, and cutover planning &amp; execution.</li>
+              <li>Exposure to Azure, Java, IBM-3270, Oracle Siebel, RESTful APIs, Power BI. Helped sell multi-million USD contracts.</li>
+            </ul>
+          </div>
+          <!-- AAU -->
+          <div class="rounded-xl border border-slate-800 bg-slate-800/50 p-4">
+            <div class="text-sm text-slate-400">2018 → 2019</div>
+            <div class="font-semibold">Research Assistant — Aalborg University (Automation &amp; Control)</div>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Developed a platform for an autonomous robot balancing on a ball.</li>
+            </ul>
+          </div>
+          <!-- GomSpace -->
+          <div class="rounded-xl border border-slate-800 bg-slate-800/50 p-4">
+            <div class="text-sm text-slate-400">2017</div>
+            <div class="font-semibold">Test &amp; Quality Engineer (part-time) — GomSpace A/S</div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mt-6">
+          <div>
+            <h3 class="text-xl font-semibold">Education</h3>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>M.Sc. Engineering — Control &amp; Automation, Aalborg University</li>
+              <li>B.Sc. Electronic Engineering &amp; IT, Aalborg University</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Certificates</h3>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>PSM I (Scrum.org)</li>
+              <li>AZ-900 Microsoft Azure Fundamentals</li>
+              <li>SAFe 4.6 Practitioner</li>
+              <li>Course: Financial Markets (Yale – R. Shiller)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5 mt-6">
+          <div>
+            <h3 class="text-xl font-semibold">Awards</h3>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Hall of Fame — Studentersamfundet (2018)</li>
+              <li>Volunteer of the Year — Aalborg University (2017)</li>
+              <li>Initiative of the Year — Aalborg University (2017)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold">Languages</h3>
+            <ul class="list-disc pl-5 mt-2 space-y-1">
+              <li>Danish — Native</li>
+              <li>English — Full professional proficiency</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
+        <h2 class="text-xl font-semibold">Contact</h2>
+        <p class="text-slate-400 mt-1">Send a message below — I’ll reply soon.</p>
+
+        <form class="grid gap-3 mt-3" action="https://formspree.io/f/mrblojzr" method="POST">
+          <input type="hidden" name="_subject" value="Message from vinkel.dk" />
+          <label class="grid gap-1">
+            <span class="text-sm text-slate-300">Name</span>
+            <input class="rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-2" type="text" name="name" required />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm text-slate-300">Email</span>
+            <input class="rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-2" type="email" name="email" required />
+          </label>
+          <label class="grid gap-1">
+            <span class="text-sm text-slate-300">Message</span>
+            <textarea class="rounded-xl border border-slate-800 bg-slate-800/60 px-3 py-2 min-h-[140px]" name="message" required></textarea>
+          </label>
+          <button class="mt-2 inline-flex items-center justify-center rounded-xl bg-emerald-400 text-slate-900 font-bold px-4 py-2 hover:brightness-95" type="submit">
+            Send message
+          </button>
+          <p class="text-xs text-slate-400">By sending, you agree I can contact you back about your inquiry.</p>
+        </form>
+      </section>
+    </main>
   </div>
-</nav>
 
-<div class="wrap">
-  <!-- Left hero panel -->
-  <aside class="hero">
-    <div class="portrait-wrap">
-      <img src="./picture3.png" alt="Portrait of Nicolaj Vinkel" class="portrait" />
-    </div>
-    <h1>Nicolaj Vinkel</h1>
-    <p class="title">Senior Advisor — bridging business & technology</p>
-    <div class="tags">
-      <span class="tag">Business Analysis</span>
-      <span class="tag">Data Migration</span>
-      <span class="tag">Cutover Management</span>
-      <span class="tag">Project Planning</span>
-    </div>
-    <div class="socials" id="socials">
-      <a href="https://www.linkedin.com/in/nvinkel/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Vinkel93" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </aside>
+  <footer class="max-w-6xl mx-auto px-4 my-10 text-center text-slate-400">
+    © <span id="year"></span> Nicolaj Vinkel
+  </footer>
 
-  <!-- Right content -->
-  <main class="grid">
-    <!-- About + CV -->
-    <section id="cv" class="card">
-      <h2>About</h2>
-      <p>
-        I’m an outgoing and proactive engineer with a futuristic and analytical mindset. I love merging business and technology and
-        translating between stakeholders so projects move faster with fewer surprises. I’ve worked across roles ranging from
-        developer and analyst to solution architect and project lead.
-      </p>
-      <p class="muted">Based in Copenhagen · Open to interesting projects in analytics, integrations, and modernization.</p>
-
-      <h2 style="margin-top:18px;">Experience (highlights)</h2>
-      <div class="timeline">
-        <div class="item">
-          <div class="when">2024 → Present</div>
-          <div class="role">Senior Advisor — 44East</div>
-          <ul>
-            <li>Technical project leadership for a banking IT provider; replacing legacy core to enable modern capabilities.</li>
-            <li>Bridge business and engineering; drive structure, risk mitigation, and clear decision-making.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="when">2019 → 2023</div>
-          <div class="role">Technical Consultant — Accenture (Software Engineering)</div>
-          <ul>
-            <li>Insurance industry projects across roles: Developer, Business/Technical Analyst, Scrum Master, Solution Architect.</li>
-            <li>Requirements, integrations (APIs, mainframe & Siebel), data migration support, and cutover planning & execution.</li>
-            <li>Exposure to Azure, Java, IBM-3270, Oracle Siebel, RESTful APIs, Power BI. Helped sell multi-million USD contracts.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="when">2018 → 2019</div>
-          <div class="role">Research Assistant — Aalborg University (Automation & Control)</div>
-          <ul>
-            <li>Developed a platform for an autonomous robot balancing on a ball.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="when">2017</div>
-          <div class="role">Test & Quality Engineer (part-time) — GomSpace A/S</div>
-        </div>
-      </div>
-
-      <div class="grid" style="margin-top:18px">
-        <div>
-          <h2>Education</h2>
-          <ul>
-            <li>M.Sc. Engineering — Control & Automation, Aalborg University</li>
-            <li>B.Sc. Electronic Engineering & IT, Aalborg University</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Certificates</h2>
-          <ul>
-            <li>PSM I (Scrum.org)</li>
-            <li>AZ-900 Microsoft Azure Fundamentals</li>
-            <li>SAFe 4.6 Practitioner</li>
-            <li>Course: Financial Markets (Yale – R. Shiller)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid" style="margin-top:18px">
-        <div>
-          <h2>Awards</h2>
-          <ul>
-            <li>Hall of Fame — Studentersamfundet (2018)</li>
-            <li>Volunteer of the Year — Aalborg University (2017)</li>
-            <li>Initiative of the Year — Aalborg University (2017)</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Languages</h2>
-          <ul>
-            <li>Danish — Native</li>
-            <li>English — Full professional proficiency</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p class="muted">Send a message below — I’ll reply soon.</p>
-      <form action="https://formspree.io/f/mrblojzr" method="POST">
-        <input type="hidden" name="_subject" value="Message from vinkel.dk" />
-        <label>
-          Name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Message
-          <textarea name="message" required></textarea>
-        </label>
-        <button type="submit">Send message</button>
-        <p class="note">By sending, you agree I can contact you back about your inquiry.</p>
-      </form>
-
-      <div style="margin-top:18px">
-        <h2 id="socials">Socials</h2>
-        <div class="socials">
-          <a href="https://www.linkedin.com/in/nvinkel/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/Vinkel93" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </section>
-  </main>
-</div>
-
-<footer>
-  © <span id="year"></span> Nicolaj Vinkel
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
